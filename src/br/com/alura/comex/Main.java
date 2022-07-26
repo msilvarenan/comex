@@ -6,8 +6,9 @@ public class Main {
 	
 	public static void main(String[] args) {  
 		ArrayList<Pedido> pedidos = ProcessadorDeCsv.processaArquivo("pedidos.csv");
-		for (Pedido pedido : pedidos) {
-			System.out.println(pedido.getCliente());
-		}
+		//for (Pedido pedido : pedidos) {
+		//	System.out.println(pedido.getCliente());
+		//}
+		System.out.println("Numero de pedidos: " + pedidos.size());
 	}
 }
