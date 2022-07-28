@@ -9,14 +9,20 @@ public class Main {
 	public static void main(String[] args) {  
 		ArrayList<Pedido> pedidos = ProcessadorDeCsv.processaArquivo("pedidos.csv");
 						
-		ArrayList<String> listaCliente = new ArrayList<>();
+		ArrayList<String> listaCategoria = new ArrayList<>();
 		for (Pedido pedido : pedidos) {
-			listaCliente.add(pedido.getCliente());
+			listaCategoria.add(pedido.getCategoria());
 		}
 		
-		List<String> novaLista = listaCliente.stream().distinct().sorted().collect(Collectors.toList());
+		List<String> novaLista = listaCategoria.stream().distinct().sorted().collect(Collectors.toList());
 		for (String nome : novaLista) {
-			System.out.println(nome); 
+			int quantidadePedidos = 0;
+			for (Pedido pedido : pedidos) {
+				if (pedido.getCategoria().equals(nome)) {
+					quantidadePedidos++;
+				}
+			}
+			System.out.println(nome + ": " + quantidadePedidos); 
 		}
 		
 		
