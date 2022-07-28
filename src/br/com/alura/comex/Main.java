@@ -17,7 +17,7 @@ public class Main {
 				
 		ArrayList<String> listaCategoria = new ArrayList<>();
 		for (Pedido pedido : pedidos) {
-			listaCategoria.add(pedido.getCategoria());
+			listaCategoria.add(pedido.getCliente());
 		}
 		//System.out.println(listaCategoria);
 		//for (String cliente : listaClientes) {
@@ -34,11 +34,9 @@ public class Main {
 		for (String categoria : newList) {
 			System.out.println(categoria); 
 		}
-		// Print the ArrayList with duplicates removed
-		//System.out.println(newList);
-		
-		
-		
+
+
+		//TestePullRequest
 	}
 }
 
