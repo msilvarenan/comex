@@ -10,23 +10,17 @@ public class Main {
 		ArrayList<Pedido> pedidos = ProcessadorDeCsv.processaArquivo("pedidos.csv");
 						
 		ArrayList<String> listaCategoria = new ArrayList<>();
+		
 		for (Pedido pedido : pedidos) {
-			listaCategoria.add(pedido.getCategoria());
-		}
-		
-		List<String> novaLista = listaCategoria.stream().distinct().sorted().collect(Collectors.toList());
-		for (String nome : novaLista) {
-			int quantidadePedidos = 0;
-			for (Pedido pedido : pedidos) {
-				if (pedido.getCategoria().equals(nome)) {
-					quantidadePedidos++;
-				}
+			if(!listaCategoria.contains(pedido.getCategoria())) {
+				listaCategoria.add(pedido.getCategoria());
 			}
-			System.out.println(nome + ": " + quantidadePedidos); 
+			
 		}
 		
-		
-
+		for (String Categoria: listaCategoria) {
+			System.out.println(Categoria);
+		}
 	}
 }
 
