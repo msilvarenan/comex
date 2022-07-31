@@ -7,20 +7,35 @@ import java.util.stream.Collectors;
 public class Main {
 	
 	public static void main(String[] args) {  
+				
 		ArrayList<Pedido> pedidos = ProcessadorDeCsv.processaArquivo("pedidos.csv");
-						
 		ArrayList<String> listaCategoria = new ArrayList<>();
 		
+		//Gerando a lista de categoria sem duplicações
 		for (Pedido pedido : pedidos) {
-			if(!listaCategoria.contains(pedido.getCategoria())) {
-				listaCategoria.add(pedido.getCategoria());
-			}
-			
+			 if(!listaCategoria.contains(pedido.getCategoria())) {
+			 listaCategoria.add(pedido.getCategoria()); }
+			 
 		}
 		
-		for (String Categoria: listaCategoria) {
-			System.out.println(Categoria);
+		//adicionando a quantidade de Pedidos por categoria
+		for (String categoria : listaCategoria) {
+			int quantidadePedidos = 0;
+			for (Pedido pedido : pedidos) {
+				if (pedido.getCategoria().equals(categoria)) {
+					quantidadePedidos++;
+				}
+			}
+			System.out.println(categoria + ": " + quantidadePedidos); 
 		}
+		
+		
+		
+		
+		
+		
+		
+		
 	}
 }
 
