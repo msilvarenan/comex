@@ -1,41 +1,37 @@
 package br.com.alura.comex;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.stream.Collectors;
 
 public class Main {
 	
 	public static void main(String[] args) {  
-				
 		ArrayList<Pedido> pedidos = ProcessadorDeCsv.processaArquivo("pedidos.csv");
-		ArrayList<String> listaCategoria = new ArrayList<>();
+						
+		ArrayList<String> listaCliente = new ArrayList<>();
 		
-		//Gerando a lista de categoria sem duplicações
+		
 		for (Pedido pedido : pedidos) {
-			 if(!listaCategoria.contains(pedido.getCategoria())) {
-			 listaCategoria.add(pedido.getCategoria()); }
-			 
+			if(!listaCliente.contains(pedido.getCliente())) {
+				listaCliente.add(pedido.getCliente());
+			} 
+
 		}
+		NomeComparator comparator = new NomeComparator();
+		listaCliente.sort(comparator);
 		
-		//adicionando a quantidade de Pedidos por categoria
-		for (String categoria : listaCategoria) {
-			int quantidadePedidos = 0;
-			for (Pedido pedido : pedidos) {
-				if (pedido.getCategoria().equals(categoria)) {
-					quantidadePedidos++;
-				}
-			}
-			System.out.println(categoria + ": " + quantidadePedidos); 
+		for (String nome : listaCliente) {
+			System.out.println(nome); 
 		}
 		
 		
+		/*ArrayList <String> listaOrdenada = (ArrayList<String>) listaCliente.stream().sorted().collect(Collectors.toList());
+		for (String nome : listaOrdenada) {
+			System.out.println(nome); 
+		}*/
 		
 		
-		
-		
-		
-		
+
 	}
 }
 
