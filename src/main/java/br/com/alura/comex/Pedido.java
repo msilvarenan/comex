@@ -1,8 +1,12 @@
 package br.com.alura.comex;
-
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import com.thoughtworks.xstream.annotations.XStreamAlias;
 
+
+
+
+@XStreamAlias("pedido")
 public class Pedido implements Comparable<Pedido>{
 
   private String categoria;
