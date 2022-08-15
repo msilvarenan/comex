@@ -12,6 +12,7 @@ public class Main {
 	public static void main(String[] args)  {  
 		List<Pedido> pedidos = ProcessadorDeCsv.processaArquivo("pedidos.csv");
 		//List<Pedido> pedidos = ProcessadorDeXML.processaArquivoXML("pedidos.xml");
+		
 				
 		//Exercício 1: Lista de categorias sem duplicações
 		Set<String> categoriasSemDuplicacao = new HashSet<>(); 
