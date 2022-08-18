@@ -1,8 +1,5 @@
 package br.com.alura.comex;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.net.URISyntaxException;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -10,14 +7,18 @@ import java.util.Set;
 public class Main {
 	
 	public static void main(String[] args)  {  
-		List<Pedido> pedidos = ProcessadorDeCsv.processaArquivo("pedidos.csv");
-		//List<Pedido> pedidos = ProcessadorDeXML.processaArquivoXML("pedidos.xml");
+		//List<Pedido> pedidos = ProcessadorDeCsv.processaArquivo("pedidos.csv");
+		List<Pedido> pedidos = ProcessadorDeXML.processaArquivoXML("pedidos.xml");
 		
-				
+		
+		System.out.println(pedidos);
+		
+		
+		
 		//Exercício 1: Lista de categorias sem duplicações
-		Set<String> categoriasSemDuplicacao = new HashSet<>(); 
-		pedidos.forEach(pedido -> categoriasSemDuplicacao.add(pedido.getCategoria()));
-		categoriasSemDuplicacao.forEach(categoria -> {System.out.println(categoria);});
+		//Set<String> categoriasSemDuplicacao = new HashSet<>(); 
+		//pedidos.forEach(pedido -> categoriasSemDuplicacao.add(pedido.getCategoria()));
+		//categoriasSemDuplicacao.forEach(categoria -> {System.out.println(categoria);});
 			
 		//Exercício 2
 		

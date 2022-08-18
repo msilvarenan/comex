@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.math.BigDecimal;
 import java.net.URISyntaxException;
 import java.net.URL;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -11,12 +12,17 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import com.opencsv.CSVReader;
+
 public class ProcessadorDeCsv {
 
   public static List<Pedido> processaArquivo(String nomeDoArquivo) {
     try {
       URL recursoCSV = ClassLoader.getSystemResource(nomeDoArquivo);
       Path caminhoDoArquivo = Path.of(recursoCSV.toURI());
+      
+      //CSVReader csvReader = new CSVReader(Files.newBufferedReader(caminhoDoArquivo));
+      //csvReader.skip(numberOfLinesToSkip: 1);
 
       Scanner leitorDeLinhas = new Scanner(caminhoDoArquivo);
 
