@@ -7,8 +7,8 @@ import java.util.Set;
 public class Main {
 	
 	public static void main(String[] args)  {  
-		//List<Pedido> pedidos = ProcessadorDeCsv.processaArquivo("pedidos.csv");
-		List<Pedido> pedidos = ProcessadorDeXML.processaArquivoXML("pedidos.xml");
+		List<Pedido> pedidos = ProcessadorDeCsv.processaArquivo("pedidos.csv");
+		//List<Pedido> pedidos = ProcessadorDeXML.processaArquivoXML("pedidos.xml");
 		
 		
 		System.out.println(pedidos);
