@@ -2,7 +2,8 @@ package br.com.alura.comex;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.TreeSet;
+
+import br.com.alura.comex.modelo.Pedido;
 
 public class PedidoList {
 	private List<Pedido> pedidos;

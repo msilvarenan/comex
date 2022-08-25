@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import br.com.alura.comex.modelo.Pedido;
+
 public class PedidoService {
 	public List<String> retornaListaNomesClientes() {
 		List<Pedido> pedidos = ProcessadorDeCsv.processaArquivo("pedidos.csv");

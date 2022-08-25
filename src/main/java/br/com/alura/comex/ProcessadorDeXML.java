@@ -10,6 +10,8 @@ import java.util.Scanner;
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.security.AnyTypePermission;
 
+import br.com.alura.comex.modelo.Pedido;
+
 public class ProcessadorDeXML {
 	
 	public static List<Pedido> processaArquivoXML(String nomeArquivo) {
