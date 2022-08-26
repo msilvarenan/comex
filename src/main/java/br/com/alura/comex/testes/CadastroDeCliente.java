@@ -1,10 +1,9 @@
 package br.com.alura.comex.testes;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 
 import br.com.alura.comex.modelo.Cliente;
+import br.com.alura.comex.util.JpaUtil;
 
 public class CadastroDeCliente {
 
@@ -16,8 +15,7 @@ public class CadastroDeCliente {
 		cliente.setEmail("rmsilva@brq.com");
 		
 		
-		EntityManagerFactory factory = Persistence.createEntityManagerFactory("comex");
-		EntityManager em = factory.createEntityManager();
+		EntityManager em = JpaUtil.getEntityManager();
 		
 		em.getTransaction().begin();
 		em.persist(cliente);

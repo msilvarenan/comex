@@ -85,8 +85,7 @@ public class Cliente {
 	
 	@Override
 	public String toString() {
-		return "Nome: " + this.nome +" E-mail: " + this.email+ " CPF: "+this.cpf;
-		
+		return "Nome: " + this.nome +" E-mail: " + this.email+ " CPF: "+this.cpf + "Status: "+ status;
 	}	
 	
 }
