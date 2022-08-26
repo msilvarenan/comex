@@ -2,8 +2,6 @@ package br.com.alura.comex;
 
 import javax.persistence.EntityManager;
 
-import org.hibernate.internal.build.AllowSysOut;
-
 import br.com.alura.comex.dao.ClienteDao;
 import br.com.alura.comex.modelo.Cliente;
 import br.com.alura.comex.util.JpaUtil;
