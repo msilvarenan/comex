@@ -11,14 +11,11 @@ public class MainCategoriaDao {
 	public static void main(String[] args) {
 		EntityManager em = JpaUtil.getEntityManager();
 		
-		Categoria categoria1 = new Categoria();
-		categoria1.setNome("Informática");
+		Categoria categoria1 = new Categoria("Informática");
 		
-		Categoria categoria2 = new Categoria();
-		categoria2.setNome("MÓVEIS");
+		Categoria categoria2 = new Categoria("MÓVEIS");
 		
-		Categoria categoria3 = new Categoria();
-		categoria3.setNome("LIVROS");
+		Categoria categoria3 = new Categoria("LIVROS");
 		
 		CategoriaDao dao = new CategoriaDao(em);
 		

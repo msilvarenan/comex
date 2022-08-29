@@ -21,7 +21,10 @@ public class Categoria {
 	
 	@Enumerated(EnumType.STRING)
 	private StatusCategoria status = StatusCategoria.ATIVA;
-		
+	
+	public Categoria(String nome) {
+		this.nome = nome;
+	}
 	
 	public Long getId() {
 		return id;
