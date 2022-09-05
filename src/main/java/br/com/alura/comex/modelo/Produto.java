@@ -98,7 +98,11 @@ public class Produto {
 
 	@Override
 	public String toString() {
-		return "Produdo: " + this.nome +" | Quantidade em estoque: " + this.quantidadeEmEstoque+ " | Categoria: "+this.categoria.getNome();
+		return "Produdo: " + this.nome + 
+					" | Quantidade em estoque: " + this.quantidadeEmEstoque  + 
+					" | Descrição: " + this.descricao  + 
+					" | Categoria: " + this.categoria.getNome()+
+					" | Preço unitário: " + this.precoUnitario;
 	}	
 	
 }

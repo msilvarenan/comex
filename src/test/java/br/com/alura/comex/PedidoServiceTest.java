@@ -14,16 +14,15 @@ import org.junit.jupiter.api.Test;
 
 class PedidoServiceTest {
 
-	@Test
-	public void deveRetornarListaNomesClientes() {
-		List<String> listaDeNomes = new PedidoService().retornaListaNomesClientes();
-		assertTrue(listaDeNomes.size() > 0);
-	}
-	@Test
-	public void listaDeCategoriasDosPedidosSemRepedicaoTest() {
-		PedidoList pedidos = new PedidoList();
-		Set<String> categoriasSemDuplicacao = new PedidoService().listarCategoriaDosPedidosSemDuplicacao(); 
-        
-		assertEquals(5 , categoriasSemDuplicacao.size());
-	}
+	/*
+	 * @Test public void deveRetornarListaNomesClientes() { List<String>
+	 * listaDeNomes = new PedidoService().retornaListaNomesClientes();
+	 * assertTrue(listaDeNomes.size() > 0); }
+	 * 
+	 * @Test public void listaDeCategoriasDosPedidosSemRepedicaoTest() { PedidoList
+	 * pedidos = new PedidoList(); Set<String> categoriasSemDuplicacao = new
+	 * PedidoService().listarCategoriaDosPedidosSemDuplicacao();
+	 * 
+	 * assertEquals(5 , categoriasSemDuplicacao.size()); }
+	 */
 }

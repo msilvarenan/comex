@@ -1,6 +1,8 @@
 package br.com.alura.comex;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import br.com.alura.comex.modelo.Pedido;
 

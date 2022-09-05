@@ -1,5 +1,6 @@
 package br.com.alura.comex.modelo;
 
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -11,17 +12,21 @@ import javax.persistence.Table;
 import br.com.alura.comex.Status;
 
 @Entity
-@Table(name = "pedidos")
+@Table(name = "clientes")
 public class Cliente {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	
 	private String nome;
 	private String cpf;
 	private String telefone;
 	private String email;
 	private String profissão;
+	
+	@Embedded
+	private Endereco endereco;
 	
 	@Enumerated(EnumType.STRING)
 	private Status status = Status.ATIVO;
@@ -83,9 +88,17 @@ public class Cliente {
 		this.status = status;
 	}
 	
+	public Endereco getEndereco() {
+		return endereco;
+	}
+
+	public void setEndereco(Endereco endereco) {
+		this.endereco = endereco;
+	}
+
 	@Override
 	public String toString() {
-		return "Nome: " + this.nome +" E-mail: " + this.email+ " CPF: "+this.cpf + "Status: "+ status;
+		return "Cliente { Nome: " + this.nome +" | E-mail: " + this.email+ " | CPF: "+this.cpf + " | Status: "+ status + "| Endereço: " + endereco;
 	}	
 	
 }

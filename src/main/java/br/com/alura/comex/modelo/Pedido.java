@@ -1,71 +1,107 @@
 package br.com.alura.comex.modelo;
+
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 
+import br.com.alura.comex.TipoDescontoPedidoEnum;
 
-
+@Entity
+@Table(name = "pedidos")
 @XStreamAlias("pedido")
-public class Pedido implements Comparable<Pedido>{
+public class Pedido implements Comparable<Pedido> {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	private LocalDate data;
+
+	@ManyToOne
+	private Cliente cliente;
+
+	private BigDecimal desconto;
+
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "pedido")
+	private List<ItemDePedido> itens = new ArrayList<>();
+
+	@Enumerated(EnumType.STRING)
+	TipoDescontoPedidoEnum tipoDeDesconto;
 	
-	private String categoria;
-	private String produto;
-	private String cliente;
+	private BigDecimal valorTotal = BigDecimal.ZERO;
 
-	private BigDecimal preco;
-	private int quantidade;
+	public Pedido(Cliente cliente, LocalDate data) {
+		this.cliente = cliente;
+		this.data = data;
+	}
 
-  private LocalDate data;
+	public LocalDate getData() {
+		return data;
+	}
 
-  public Pedido(String categoria, String produto, String cliente, BigDecimal preco, int quantidade, LocalDate data) {
-    this.categoria = categoria;
-    this.produto = produto;
-    this.cliente = cliente;
-    this.preco = preco;
-    this.quantidade = quantidade;
-    this.data = data;
-  }
+	public void setData(LocalDate data) {
+		this.data = data;
+	}
 
-  public String getCategoria() {
-    return categoria;
-  }
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
+	}
 
-  public String getProduto() {
-    return produto;
-  }
+	public Cliente getCliente() {
+		return cliente;
+	}
 
-  public String getCliente() {
-    return cliente;
-  }
+	public BigDecimal getDesconto() {
+		return desconto;
+	}
 
-  public BigDecimal getPreco() {
-    return preco;
-  }
+	public void setDesconto(BigDecimal desconto) {
+		this.desconto = desconto;
+	}
 
-  public int getQuantidade() {
-    return quantidade;
-  }
+	public List<ItemDePedido> getItens() {
+		return itens;
+	}
 
-  public LocalDate getData() {
-    return data;
-  }
+	public void setItens(List<ItemDePedido> itens) {
+		this.itens = itens;
+	}
 
-  @Override
-  public String toString() {
-    return "Pedido{" +
-        "categoria='" + categoria + '\'' +
-        ", produto='" + produto + '\'' +
-        ", cliente='" + cliente + '\'' +
-        ", preco=" + preco +
-        ", quantidade=" + quantidade +
-        ", data=" + data +
-        '}';
-  	}
+	public void addItemDePedido(ItemDePedido item) {
+		item.setPedido(this);
+		itens.add(item);
+		this.valorTotal = this.valorTotal.add(item.getValor());
+	}
+
+	public TipoDescontoPedidoEnum getTipoDeDesconto() {
+		return tipoDeDesconto;
+	}
+
+	public void setTipoDeDesconto(TipoDescontoPedidoEnum tipoDeDesconto) {
+		this.tipoDeDesconto = tipoDeDesconto;
+	}
+
+	@Override
+	public String toString() {
+		return "Pedido { Dados do cliente= " + cliente + " | " + ", | Data do pedido= " + data + " | { Itens do pedido = "+ itens + "} }";
+	}
 
 	@Override
 	public int compareTo(Pedido pedido) {
-		return this.cliente.compareTo(pedido.getCliente());
+		return this.cliente.getNome().compareTo(pedido.cliente.getNome());
 	}
 
 }

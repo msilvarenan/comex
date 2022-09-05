@@ -51,7 +51,7 @@ public class Categoria {
 	
 	@Override
 	public String toString() {
-		return "Nome: " + this.nome + "Status: "+ status;
+		return "Nome: " + this.nome + " | Status: "+ status;
 	}	
 	
 }
