@@ -7,7 +7,7 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 import br.com.alura.comex.Status;
-import br.com.alura.comex.data.orm.Cliente;
+import br.com.alura.comex.data.modelo.Cliente;
 
 @Repository
 public interface ClienteRepository extends CrudRepository<Cliente, Long>, JpaSpecificationExecutor<Cliente> {

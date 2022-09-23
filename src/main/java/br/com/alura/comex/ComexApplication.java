@@ -7,9 +7,11 @@ import org.springframework.cache.annotation.EnableCaching;
 
 import br.com.alura.comex.data.repository.CategoriaRepository;
 import br.com.alura.comex.data.repository.ClienteRepository;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @SpringBootApplication
 @EnableCaching
+@EnableSwagger2
 public class ComexApplication implements CommandLineRunner {
 	
 	private final ClienteRepository clienteRepository;

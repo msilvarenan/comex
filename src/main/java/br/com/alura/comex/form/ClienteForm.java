@@ -5,8 +5,8 @@ import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Length;
 
-import br.com.alura.comex.data.orm.Cliente;
-import br.com.alura.comex.data.orm.Endereco;
+import br.com.alura.comex.data.modelo.Cliente;
+import br.com.alura.comex.data.modelo.Endereco;
 
 public class ClienteForm {
 

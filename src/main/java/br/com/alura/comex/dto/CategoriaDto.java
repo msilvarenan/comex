@@ -3,7 +3,7 @@ package br.com.alura.comex.dto;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import br.com.alura.comex.data.orm.Categoria;
+import br.com.alura.comex.data.modelo.Categoria;
 
 public class CategoriaDto {
 	private String id;

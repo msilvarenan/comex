@@ -1,4 +1,4 @@
-package br.com.alura.comex.data.orm;
+package br.com.alura.comex.data.modelo;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

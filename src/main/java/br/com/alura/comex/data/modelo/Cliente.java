@@ -1,4 +1,4 @@
-package br.com.alura.comex.data.orm;
+package br.com.alura.comex.data.modelo;
 
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
@@ -7,6 +7,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import br.com.alura.comex.Status;
@@ -32,6 +33,9 @@ public class Cliente {
 	
 	@Enumerated(EnumType.STRING)
 	private Status status = Status.ATIVO;
+	
+	@OneToOne
+	private Usuario usuario;
 
 	public Long getId() {
 		return id;

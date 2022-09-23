@@ -3,7 +3,7 @@ package br.com.alura.comex.dto;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import br.com.alura.comex.data.orm.Cliente;
+import br.com.alura.comex.data.modelo.Cliente;
 
 public class ClienteDto {
 	private Long id;

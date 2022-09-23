@@ -8,7 +8,7 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 import br.com.alura.comex.StatusCategoria;
-import br.com.alura.comex.data.orm.Categoria;
+import br.com.alura.comex.data.modelo.Categoria;
 
 @Repository
 public interface CategoriaRepository extends CrudRepository<Categoria, Long>, JpaSpecificationExecutor<Categoria> {

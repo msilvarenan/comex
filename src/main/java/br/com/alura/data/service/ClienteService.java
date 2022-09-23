@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import br.com.alura.comex.data.orm.Cliente;
+import br.com.alura.comex.data.modelo.Cliente;
 import br.com.alura.comex.data.repository.ClienteRepository;
 
 @Service

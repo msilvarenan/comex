@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.alura.comex.data.orm.Cliente;
+import br.com.alura.comex.data.modelo.Cliente;
 import br.com.alura.comex.data.repository.ClienteRepository;
 import br.com.alura.comex.dto.ClienteDto;
 import br.com.alura.comex.form.ClienteForm;
