@@ -10,20 +10,26 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
+import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+
+import br.com.alura.comex.data.repository.UsuarioRepository;
 
 @EnableWebSecurity
 @Configuration
 public class SecurityConfigurations {
 
-	// @Autowired private TokenService tokenService;
+	@Autowired 
+	private TokenService tokenService;
 
 	@Autowired
 	private AutenticacaoService autenticacaoService;
 
-	// @Autowired private UsuarioRepository usuarioRepository;
+	@Autowired 
+	private UsuarioRepository usuarioRepository;
 
 	// Configurações de autenticação
 
@@ -45,14 +51,11 @@ public class SecurityConfigurations {
 
 				.antMatchers(HttpMethod.POST, "/api/categorias").permitAll()
 				.antMatchers(HttpMethod.GET, "/api/categorias").permitAll()
-
 				.antMatchers(HttpMethod.POST, "/auth").permitAll().antMatchers(HttpMethod.GET, "/actuator/**")
-				.permitAll().anyRequest().authenticated().and().formLogin();
-
-		// .and().csrf().disable()
-		// .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-		// .and().addFilterBefore(new AutenticacaoViaTokenFilter(tokenService,
-		// usuarioRepository), UsernamePasswordAuthenticationFilter.class);
+				.permitAll().anyRequest().authenticated()
+				.and().csrf().disable()
+				.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+				.and().addFilterBefore(new AutenticacaoViaTokenFilter(tokenService, usuarioRepository), UsernamePasswordAuthenticationFilter.class);
 
 		return http.build();
 	}
@@ -70,7 +73,4 @@ public class SecurityConfigurations {
 		return new BCryptPasswordEncoder();
 	}
 
-public static void main(String[] args) {
-		System.out.println(new BCryptPasswordEncoder().encode("123456"));
-	}
 }
