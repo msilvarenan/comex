@@ -34,8 +34,9 @@ public class Cliente {
 	@Enumerated(EnumType.STRING)
 	private Status status = Status.ATIVO;
 	
-	@OneToOne
-	private Usuario usuario;
+	/*
+	 * @OneToOne private Usuario usuario;
+	 */
 
 	public Long getId() {
 		return id;
