@@ -16,7 +16,7 @@ public class ComexApplication implements CommandLineRunner {
 	
 	private final ClienteRepository clienteRepository;
 	private final CategoriaRepository categoriaRepository;
-	//teste
+	
 	public ComexApplication(ClienteRepository clienteReporitory, CategoriaRepository categoriaRepository) {
 		this.clienteRepository = clienteReporitory;
 		this.categoriaRepository = categoriaRepository;

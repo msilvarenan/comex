@@ -21,6 +21,13 @@ public class ClienteDto {
 		this.local = cliente.getEndereco().getCidade() + "/" + cliente.getEndereco().getEstado();
 		this.status = cliente.getStatus().toString();
 	}
+	
+	
+
+	public ClienteDto() {
+	}
+
+
 
 	public Long getId() {
 		return id;

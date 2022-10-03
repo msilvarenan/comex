@@ -18,6 +18,10 @@ public class CategoriaDto {
 		this.nome = categoria.getNome();
 		this.status = categoria.getStatus().toString();
 	}
+	
+	public CategoriaDto() {
+	}
+
 	public String getId() {
 		return id;
 	}
